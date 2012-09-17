@@ -1,6 +1,6 @@
 Git basics
 
-Initinalize directory - git init
+Initialize directory - git init
 it will create a hidden directory call .git - which will store all the metadata, code change information, any information about revisions or branches.
 
 Anytime if you don't know about git command than type
@@ -34,11 +34,11 @@ git reset --hard HEAD - this will unstage the staged changes and also will have 
 git clean -n = it would remove the untracked file
 git clean -f = will remove the untracked file
 
-git log = wil show the commits
+git log = will show the commits
 git log --oneline = will show the commit in one line (easy to read)
 
 To modify commit message
-git commit --ammed - it will open vim editor and there you can modify the commit message)
+git commit --amend - it will open vim editor and there you can modify the commit message)
 
 To delete branch -
 git branch -d
