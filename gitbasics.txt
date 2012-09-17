@@ -1,0 +1,113 @@
+Git basics
+
+Initinalize directory - git init
+it will create a hidden directory call .git - which will store all the metadata, code change information, any information about revisions or branches.
+
+Anytime if you don't know about git command than type
+git help init - it will show you the help page for git init command
+
+For adding any directory wants to be ignored by git than add that into exclude file.
+.git/info and open exclude file
+exclude file is similar to .gitignore
+(.gitignore file comes with drupal install and you don't want to write anything into that)
+
+git status - will show the status of git repo
+git add - it will add the files to staging area and in next commit the files will be added
+suppose you want to rollback your changes than you can do so
+git reset HEAD - this will unstage the change
+
+git commit -m " " - git commit of the file or files with commit message
+git commit -a -m " " - it will commit all the staged files and modified files except for newly added files
+git help - will show you the list of useful features in git
+
+git commit --amend - it will help modify the last commit message
+
+git diff - it opens up vim. red color or negative is for lines of removed and green color or + for added line.
+
+To rollback any changes before adding any changes or before staging them
+git checkout --
+
+To rollback any changes after staging them(adding before committing)
+git reset HEAD - Here HEAD is pointing to the branch you are on
+git reset --hard HEAD - this will unstage the staged changes and also will have the HEAD reset at the branch you are on
+
+git clean -n = it would remove the untracked file
+git clean -f = will remove the untracked file
+
+git log = wil show the commits
+git log --oneline = will show the commit in one line (easy to read)
+
+To modify commit message
+git commit --ammed - it will open vim editor and there you can modify the commit message)
+
+To delete branch -
+git branch -d
+
+undo commits
+To revert the last commit the branch you are on
+git revert HEAD -m " "
+To revert any particular commit and rewrite the history - just copy the commit hash and do this
+
+git revert --hard
+To move file
+
+git mv
+or manually move file from one place to another place and than do this
+git add -A - it will track all the files which were moved
+To create a branch
+
+git checkout -b - this will create new branch and will checkout as soon as it creates so you will be working in the new branch
+git branch - will show the branches available in your local repo
+git merge - it will merge commits from branch into repo
+If you want message for merge and don't want to fast-forward the merge (what fast forward does is it pulls in any commits that are made to the branch thats being pulled in as if they were made on the original branch) do this
+
+git merge --no-ff
+if you do git log --oneline - you will see the commit message
+while working on one branch but if you need to move to another branch do this
+
+git stash - it will save the changes
+you can than switch the branches and do work there and come back to the branch you were working previously and to see the changes back do this -
+git stash list - it will show you the stash list with stash name
+git stash apply
+If you want to apply one particular stash than do this
+git stash apply
+If you want to keep the stash list clean than you can do this -
+git stash drop
+
+Add a tag - it will take a snapshot of our site and name it as we want to
+git tag -a -m ""
+git tag -l = will give the list of tag
+git tag - will rename the tag
+git tag -d = will delete the tag
+
+Central remote git repository
+From local environment you can push change to central repo and push the changes from central to live site.
+One of the most popular central remote git repository is github and another one is unfudddle.
+
+set up a github account
+go to github.com
+create an account
+Download and install git
+set up SSH keys
+Set up a remote repository
+
+create copy on local repo git remote add origin - this will add a remote called origin on local repo
+To rename origin on local repo - git remote rename
+To see the list of remote repo - git remote
+git push -u origin or master - this will take the whole history of the master branch and push it to origin
+git branch -a - it will show all the branches including on the remote site
+command - t - by this you can rename the tabs in the terminal
+
+For cloning any project from github just do like
+git clone
+
+Undo commit from remote repo
+git revert HEAD - it will revert the last commit on the local repo
+git push - pushes the latest commit to central remote repo
+git log / --oneline
+git reset --hard - it will revert to the previous commits
+git push -f - it forcefully pushes the changes
+
+Some additional tips
+If you get a message saying that your branch is ahead of origin/master by 1 commit - this means that you have one change locally that you haven't pushed to the remote site.
+Repository starts wherever the .git folder is
